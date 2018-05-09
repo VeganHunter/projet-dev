@@ -16,32 +16,17 @@
   </head>
   <body>
 
-	<!-- Button to start introduction -->
-	<div id="start" class="bigButton"><span>INTRODUCTION</span></div>
-	
 	<!-- Chart -->
     <div id="planetarium"></div>
 
 	<!-- Ribbon of buttons at the bottom -->
 	<div id="buttonWrapper">
-			<div class="bar">|</div><div id="info" 		class="sideButton">information</div>
-			<div class="bar">|</div><div id="remove" 	class="sideButton">skip intro</div>
-			<div class="bar">|</div><div id="reset" 	class="sideButton">reset</div>
-			<div class="bar">|</div><div id="scale" 	class="sideButton">scale planets</div>
-			<div class="bar">|</div><div id="link" 		class="sideButton"><a href="http://nbremer.github.io/exoplanets/"  target="_blank">view full screen</a></div>
-			<div class="bar">|</div><div id="color" 	class="sideButtonInv">colorize</div>
 
+			<div class="bar">|</div><div id="scale" 	class="sideButton">scale planets</div>
+		
 	</div>
 
 	
-	<!-- Show how to close tooltip -->
-	<div id="tooltipInfo"><span>Click anywhere in the screen to close tooltips</span></div>
-	<!-- My name :) -->
-	<div id="name">Created by <a href="http://www.visualcinnamon.com" target="_blank">Nadieh Bremer</a></div>	
-	<!-- Easter Egg -->
-	<div id="crazy" class="bigButton"><span>COLORIZE</span></div>	
-	
-
 	<!-- Create div structure for Tooltip -->
 	<div id="tooltip">
 		<div id="tooltip-Container">
@@ -58,12 +43,9 @@
 	</div>
 		
 	<!-- Separate functions that became too big for the main script -->
-	<script src="js/helperFunctions.js"></script>	
+	<script src="js/helperFunction.js"></script>	
 	<script src="js/exoplanets.js"></script>	<!-- data -->
 	<script src="js/showTooltip.js"></script>	
-	<script src="js/gradients.js"></script>
-	<script src="js/legend.js"></script>
-	<script src="js/progressCircle.js"></script>	
 	
     <script src="js/mainCode.js"></script>  
 
