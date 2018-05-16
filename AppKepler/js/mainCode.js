@@ -36,8 +36,14 @@ var container = svg.append("g").attr("class","container")
   
 //Create star in the Middle - scaled to the orbits
 //Radius of our Sun in these coordinates (taking into account size of circle inside image)
-var ImageWidth = radiusSun/au * 5000 * (2.7/1.5);
-container.
+var slider = document.getElementById("myRange");
+var output = document.getElementById("demo");
+output.innerHTML = slider.value;
+var coeff=1;
+
+
+var ImageWidth = coeff*radiusSun/au * 5000 * (2.7/1.5);
+var sunsvg = container.
 append("svg:image")
 	.attr("x", -ImageWidth)
 	.attr("y", -ImageWidth)
@@ -47,33 +53,29 @@ append("svg:image")
 	.attr("height", ImageWidth*2)
 	.attr("text-anchor", "middle");	
 
-//d3.json("exoplanets.json", function(error, planets) {
 
-///////////////////////////////////////////////////////////////////////////
-//////////////////////////// Create Scales ////////////////////////////////
-///////////////////////////////////////////////////////////////////////////
+slider.oninput = function() {
+output.innerHTML = this.value;
+coeff=this.value/100;
+ImageWidth = coeff*radiusSun/au * 5000 * (2.7/1.5);
+sunsvg
+	.attr("x", -ImageWidth)
+	.attr("y", -ImageWidth)
+	.attr("class", "sun")
+	.attr("xlink:href", "sun.png")
+	.attr("width", ImageWidth*2)
+	.attr("height", ImageWidth*2)
+	.attr("text-anchor", "middle");
+}
 
-//Create color gradient for planets based on the temperature of the star that they orbit
-var colors = ["#FB1108","#FD150B","#FA7806","#FBE426","#FCFB8F","#F3F5E7","#C7E4EA","#ABD6E6","#9AD2E1","#42A1C1","#1C5FA5", "#172484"];
-var colorScale = d3.scale.linear()
-	  .domain([2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000, 10000, 14000, 20000, 30000]) // Temperatures
-	  .range(colors);
-	
-//Set scale for radius of circles
-var rScale = d3.scale.linear()
-	.range([1, 20])
-	.domain([0, d3.max(planets, function(d) { return d.Radius; })]);	
-
-//Format with 2 decimals
-var formatSI = d3.format(".2f");
-
-//Create the gradients for the planet fill
-var gradientChoice = "Temp";
-//createGradients();
 
 ///////////////////////////////////////////////////////////////////////////
 /////////////////////////// Plot and move planets /////////////////////////
 ///////////////////////////////////////////////////////////////////////////
+var planets = [
+{ "major":110.3079, "minor":109.850220659647, "e":0.091, "focus":10.0380189000001, 
+"r":120.3459189, "cx":10.0380189000001, "cy":0, "x":120.3459189, "y":0, "theta": 0, "ID":2, "Radius":1.281, 
+"period":2.243752, "speed":308.8955, "name":"WASP-14 b", "discovered":2009, "class":"F", "temp":6475}];
 
 //Drawing a line for the orbit
 var orbitsContainer = container.append("g").attr("class","orbitsContainer");

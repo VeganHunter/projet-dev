@@ -19,12 +19,16 @@
 	<!-- Chart -->
     <div id="planetarium"></div>
 
-	<!-- Ribbon of buttons at the bottom -->
-	<div id="buttonWrapper">
 
-			<div class="bar">|</div><div id="scale" 	class="sideButton">scale planets</div>
-		
-	</div>
+	<!-- Slider -->
+  	<div class="slidecontainer">
+        <input type="range" min="0" max="500" value="50" step="10" class="slider" id="myRange">  
+    </div>
+
+  	<!-- Value -->
+    <div class="valeur">
+        <p style="color:blue">Value: <span id="demo"></span></p>
+    </div>
 
 	
 	<!-- Create div structure for Tooltip -->
@@ -41,12 +45,12 @@
 			<div class="tooltip-tail"></div>
 		</div>
 	</div>
-		
+
+    	
 	<!-- Separate functions that became too big for the main script -->
 	<script src="js/helperFunction.js"></script>	
-	<script src="js/exoplanets.js"></script>	<!-- data -->
 	<script src="js/showTooltip.js"></script>	
-	
+	<script src="js/Cursor.js"></script>	
     <script src="js/mainCode.js"></script>  
 
 
