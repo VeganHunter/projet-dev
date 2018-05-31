@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	  <meta charset="utf-8">
+	  <meta name="viewport" content="width=device-width">
+	  <title>Test</title>
+	</head>
+  <body>
+	<script>
+
+		function polarToCartesian(centerX, centerY, semiMajorAxe, semiMinorAxe, angleInDegrees) {
+		  var angleInRadians = (angleInDegrees-90) * Math.PI / 180.0;
+
+		  return {
+			x: centerX + (semiMajorAxe * Math.cos(angleInRadians)),
+			y: centerY + (semiMinorAxe * Math.sin(angleInRadians))
+		  };
+		}
+
+		function describeArc(x, y, semiMajorAxe, semiMinorAxe, startAngle, endAngle){
+
+			var start = polarToCartesian(x, y, semiMajorAxe, semiMinorAxe, endAngle);
+			var end = polarToCartesian(x, y, semiMajorAxe, semiMinorAxe, startAngle);
+
+			var largeArcFlag = endAngle - startAngle <= 180 ? "0" : "1";
+
+			var d = [
+				"M", x, y, 
+				"L", start.x, start.y,
+				"A", semiMajorAxe, semiMinorAxe, 0, largeArcFlag, 0, end.x, end.y,
+				"Z"
+			].join(" ");
+
+			return d;       
+		}
+
+		window.onload = function() {
+		// donner en paramètres : coordonnée x du foyer, coordonnée y du foyer, le demi-grand axe, le demi-petit axe l'angle de départ, l'angle de fin du n cercle
+		
+		var x = 350;
+		var y = 150;
+		var semiMajorAxe = 200;
+		var semiMinorAxe = 100;
+		var angle1 = 50;
+		var angle2 = 70;
+		var angle3 = 80;
+		var angle4 = 110;
+		var angle5 = 170;
+		var angle6 = 250;
+		var angle7 = 300;
+		
+		  document.getElementById("arc1").setAttribute("d", describeArc(x, y, semiMajorAxe, semiMinorAxe, 0, angle1));
+		  document.getElementById("arc2").setAttribute("d", describeArc(x, y, semiMajorAxe, semiMinorAxe, angle1, angle2));
+		  document.getElementById("arc3").setAttribute("d", describeArc(x, y, semiMajorAxe, semiMinorAxe, angle2, angle3));
+		  document.getElementById("arc4").setAttribute("d", describeArc(x, y, semiMajorAxe, semiMinorAxe, angle3, angle4));
+		  document.getElementById("arc5").setAttribute("d", describeArc(x, y, semiMajorAxe, semiMinorAxe, angle4, angle5));
+		  document.getElementById("arc6").setAttribute("d", describeArc(x, y, semiMajorAxe, semiMinorAxe, angle5, angle6));
+		  document.getElementById("arc7").setAttribute("d", describeArc(x, y, semiMajorAxe, semiMinorAxe, angle6, angle7));
+		  document.getElementById("arc8").setAttribute("d", describeArc(x, y, semiMajorAxe, semiMinorAxe, angle7, 360));
+
+		};
+
+		
+	</script>
+	<svg width=1000 height=1000>
+	<path id="arc1" fill="red" stroke="black" stroke-width="0" />
+	<path id="arc2" fill="blue" stroke="black" stroke-width="0" />
+	<path id="arc3" fill="red" stroke="black" stroke-width="0" />
+	<path id="arc4" fill="blue" stroke="black" stroke-width="0" />
+	<path id="arc5" fill="red" stroke="black" stroke-width="0" />
+	<path id="arc6" fill="blue" stroke="black" stroke-width="0" />
+	<path id="arc7" fill="red" stroke="black" stroke-width="0" />
+	<path id="arc8" fill="blue" stroke="black" stroke-width="0" />
+	</svg>
+
+  </body>
+
+</html>
