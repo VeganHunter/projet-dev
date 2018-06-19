@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+
+    <script src="https://d3js.org/d3.v3.min.js"></script>
+    <script src="https://unpkg.com/mathjs@4.4.1/dist/math.min.js"></script>
+
+	<!-- Google fonts -->
+	<link href='https://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
+	
+	<link  type="text/css" rel="stylesheet" href="css/style.css"/>
+	<link type="text/css" rel="stylesheet" href="css/tooltip.css"/>
+	<link type="text/css" rel="stylesheet" href="css/infoBox.css"/>
+
+  </head>
+  <body>
+
+    	
+  	<!-- Ribbon of buttons at the top -->
+
+  	<div id="buttonWrapper">
+			<div class="bar">|</div><div id="info" 		class="sideButton"><a href="Accueil.html">Accueil</a></div>
+			<div class="bar">|</div><div id="keplerI" 	class="sideButton">Première loi de Kepler</div>
+			<div class="bar">|</div><div id="keplerII" 	class="sideButton">Deuxième loi de Kepler</div>
+			<div class="bar">|</div><div id="keplerIII" class="sideButton">Troisième loi de Kepler</div>
+			<div class="bar">|</div><div id="color" 	class="sideButtonInv">colorize</div>
+
+	</div>
+
+		<!--Information popup-->
+		
+		<div id="info1">
+			<div id="showInfo">
+				<div id="infoTitle">Information</div>
+				<div id="infoRule"></div>
+				<div id="infoText">
+					<span>Le mouvement des planètes est régi par les lois de Kepler, qui sont au nombre de 3.</span>	
+					<div id="infoClose"></div>
+				</div>
+			</div>
+		</div>
+		<div id="K1">
+			<div id="showInfo1">
+				<div id="infoTitle">Première loi de Kepler</div>
+				<div id="infoRule"></div>
+				<div id="infoText">
+					<span>Les planètes du système solaire décrivent des trajectoires elliptiques, dont le Soleil occupe l'un des foyers.</span>	
+					<div id="infoClose1"></div>
+				</div>
+			</div>
+		</div>
+
+		<div id="K2">
+			<div id="showInfo1">
+				<div id="infoTitle">Deuxième loi de Kepler</div>
+				<div id="infoRule"></div>
+				<div id="infoText">
+					<span>Le rayon Soleil-planète balaie des aires égales pendant des intervalles de temps égaux.</span>	
+					<div id="infoClose2"></div>
+				</div>
+			</div>
+		</div>
+
+		<div id="K3">
+			<div id="showInfo1">
+				<div id="infoTitle">Troisième loi de Kepler</div>
+				<div id="infoRule"></div>
+				<div id="infoText">
+					<span>La période de révolution, le demi-grand axe de l'ellipse et la masse de l'étoile sont liés par l'équation mathématique :</span>
+					</div>
+					<div id="infoClose3"></div>
+				</div>
+			</div>
+		</div>
+
+	<!-- My name :) -->
+	<div id="name">Développé par Hamzah, Mathieu, Victor et Antoine pour l'Observatoire de la Pointe du Diable.<br/>
+					Projet encadaré par Frederic Mausssang et Dominique Fabre.<br/>
+					Développement inspiré de la réalisation de
+				   <a href="http://www.visualcinnamon.com" target="_blank">Nadieh Bremer</a>.</div>
+
+			<!-- Create div structure for Tooltip -->
+	<div id="tooltip">
+		<div id="tooltip-Container">
+			<div class="tooltip-planet"></div>
+			<div class="tooltip-rule"></div>
+			<div class="tooltip-year"></div>
+			<div id="tooltip-radius"	class="tooltip-info"></div>
+			<div id="tooltip-dist" 		class="tooltip-info"></div>
+			<div id="tooltip-period" 	class="tooltip-info"></div>
+			<div id="tooltip-eccen" 	class="tooltip-info"></div>
+			<div id="tooltip-class" 	class="tooltip-info"></div>
+			<div class="tooltip-tail"></div>
+		</div>
+	</div>
+	<!-- Chart -->
+    <div id="planetarium"></div>
+
+	<!-- Sun Slider -->
+  	<div class="slidecontainer">
+        <input type="range" min="0" max="500" value="50" step="10" class="slider" id="sunSlider">  
+    </div>
+
+  	<!-- Sun Slider Value -->
+    <div class="valeur">
+        <p style="color:white">Value: <span id="sunValue"></span></p>
+    </div>
+
+	<!-- Planet -->
+    <p id="exagerate" style="color:white">Button</p>
+
+	
+	<!-- Create div structure for Tooltip -->
+	<div id="tooltip">
+		<div id="tooltip-Container">
+			<div class="tooltip-planet"></div>
+			<div class="tooltip-rule"></div>
+			<div class="tooltip-year"></div>
+			<div id="tooltip-radius"	class="tooltip-info"></div>
+			<div id="tooltip-dist" 		class="tooltip-info"></div>
+			<div id="tooltip-period" 	class="tooltip-info"></div>
+			<div id="tooltip-eccen" 	class="tooltip-info"></div>
+			<div id="tooltip-class" 	class="tooltip-info"></div>
+			<div class="tooltip-tail"></div>
+		</div>
+	</div>
+
+    	
+	<!-- Separate functions that became too big for the main script -->
+	<script src="js/helperFunction.js"></script>	
+	<script src="js/showTooltip.js"></script>	
+    <script src="js/mainCode.js"></script> 
+    <script src="js/paths.js"></script>  
+
+
+  </body>
+
+</html>
