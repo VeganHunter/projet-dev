@@ -36,13 +36,14 @@ function changeText (newText, delayDisappear, delayAppear, xloc, yloc, finalText
 //Change x and y location of each planet
 d3.timer(function() {       		
 		//Move the planet - DO NOT USE TRANSITION
+	//	console.log(phi);
 		d3.selectAll(".planet")
 			.attr("cx", locate("x"))
 			.attr("cy", locate("y"))
 			.attr("transform", function(d) {
 				return "rotate(" + (d.theta%360) + "," + d.x + "," + d.y + ")";
-			})
-			;				
+			});
+		//console.log(phi);				
 });
 	
 //Calculate the new x or y position per planet
@@ -62,8 +63,10 @@ function locate(coord) {
 				
 		if (coord == "x") {
 			//New x coordinates
+			//console.log(phi);
 			newX = d.cx + x1 * Math.cos(toRadians(phi)) - y1 * Math.sin(toRadians(phi));
 			d.x = newX;
+			console.log(Math.cos(toRadians(phi)));
 			return newX;
 		} else if (coord == "y") {
 			newY = d.cy + x1 * Math.sin(toRadians(phi)) + y1 * Math.cos(toRadians(phi));

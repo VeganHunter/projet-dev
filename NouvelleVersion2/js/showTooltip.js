@@ -56,4 +56,4 @@
 			d3.select("#tooltip-eccen").html("Eccentricity of orbit: " + d.e);
 			d3.select("#tooltip-radius").html("Radius of planet: " + formatSI(d.Radius * 11.209 ) + " Earth radii");
 			d3.select("#tooltip-dist").html("Approx. distance to its Star: " + formatSI(d.major/3000) + " au");
-		}//showTooltip	
+		}//showTooltip

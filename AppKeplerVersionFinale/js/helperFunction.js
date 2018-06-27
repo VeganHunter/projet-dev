@@ -35,6 +35,12 @@ d3.timer(function() {
 });
 
 function showSecondLaw() {
+	if(!stopEllipse){
+	closeFirstLaw();
+	}
+	if(time>0){
+		colorAreaOff();
+	}
 	d3.select('#K2').style("z-index","1000").transition().duration(300).style('opacity',0.7);
 	stopTooltip = true;
 	time=0;
@@ -56,8 +62,10 @@ function showInfo() {
 }//showInfo
 
 function showFirstLaw() {
+	closeSecondLaw();
+	closeInfo3();
 	d3.select('#K1').style("z-index","1000").transition().duration(300).style('opacity',0.7);
-	stopTooltip = true;	
+	stopTooltip = true;
 	showEllipse();
 }//showInfo
 
@@ -66,15 +74,6 @@ function showInfo3() {
 	stopTooltip = true;	
 	removeEvents();
 }//showInfo
-
-//Hide the information box
-function closeInfo() {
-	d3.select('#info1').transition().duration(300).style('opacity',0)
-		.call(endall,  function() {
-			d3.select('#info1').style("z-index","-1000");	
-		});
-	resetEvents();	
-}//closeInfo
 
 function closeFirstLaw() {
 	d3.select('#K1').transition().duration(300).style('opacity',0)
@@ -90,11 +89,8 @@ function closeInfo3() {
 		.call(endall,  function() {
 			d3.select('#K3').style("z-index","-1000");	
 		});
-	resetEvents();	
-}//closeInfo
-
-
-
+	//resetEvents();	
+}//closeInfo3 -> thirdLaw unfinished
 
 ///////////////////////////////////////////////////////////////////////////
 /////////////////////////// Other functions ///////////////////////////////
@@ -258,7 +254,8 @@ function showEllipse() {
 }//showEllipse	
 
 
-//-------------------- Unused functions ---------------//
+//-------------------- Unused functions ---------------// 
+/////////////////////// Except updateWindow, maybe... //////////
 
 //Taken from https://groups.google.com/forum/#!msg/d3-js/WC_7Xi6VV50/j1HK0vIWI-EJ
 //Calls a function only after the total transition ends
