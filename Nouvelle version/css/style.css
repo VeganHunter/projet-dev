@@ -1,0 +1,107 @@
+body {
+  font-size: 14px;
+  font-weight: 400;
+  font-family: 'Open Sans', sans-serif;
+  text-align: center;
+  vertical-align: middle;
+  background-image: url("../galaxy.png");
+  cursor: default;
+  background-size: 100%;
+}   
+
+span { 
+  display:inline-block; 
+  vertical-align:middle 
+}
+
+#buttonWrapper1{
+  z-index: 1;
+  display: block;
+  font-family: Oswald;
+  font-size: 25px;
+  font-weight: 300;
+  color: white;
+  position: absolute;
+  left: 18px;
+  top: 18px;
+  width: 640px;
+  text-align: center; 
+  overflow: hidden; 
+  visibility: auto;       
+}
+
+#buttonWrapper{
+  z-index: 1;
+  display: block;
+  font-family: Oswald;
+  font-size: 14px;
+  font-weight: 300;
+  color: white;
+  position: absolute;
+  left: 18px;
+  top: 18px;
+  width: 640px;
+  text-align: center; 
+  overflow: hidden; 
+  visibility: auto;       
+}
+
+.sideButton {
+  float: left;  
+  cursor: pointer;  
+  width: 80px;
+}
+
+.sideButton a {
+  text-decoration: none;
+  color: white;
+}
+
+.sideButtonInv {
+  float: left;  
+  cursor: pointer;  
+  width: 80px;
+  opacity: 0;
+  cursor: pointer;  
+}
+
+.bar {
+  float: left;  
+  width: 15px;
+}
+
+
+
+#tooltipInfo {
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  font-size: 12px;
+  color: white;
+  visibility: hidden;
+}
+
+#name {
+  position: absolute;
+  right: 10px;
+  bottom: 5px;
+  font-size: 10px;
+  color: white;
+}
+
+#name a {
+  text-decoration: none;
+  color: #CCCCCC;
+}
+
+.valeur {
+  visibility: hidden;
+}
+
+#bouton {
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  font-size: 14px;
+  color: white;
+}
